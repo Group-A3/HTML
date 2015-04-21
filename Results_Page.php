@@ -7,6 +7,40 @@
 it creates a hotbar icon beside the title so not currently working as the zombie.ico is in the images folder-->
 </head>
 <body>
+include('config.php');
+
+	if(isset($_POST['submit']))
+	{
+		if(isset($_GET['go']))
+		{
+			if(preg_match("/^[a-zA-Z]+/", $_POST['field']))
+			{
+				$field = $_POST['field'];
+				$query = 'SELECT * FROM music WHERE artist LIKE '%" .$field . "%' OR album LIKE '%" .$field . "%' OR genre LIKE '%" .$field . "%' OR song LIKE '%" .$field . "%' ';
+				$result = pg_query($query) or die('Search failed: ' . pg_last_error());
+				$numrows = pg_num_rows($result);
+				echo "<p>" .$numrows . " results found for " . $field . "</p>";
+				while($row = pg_fetch_array($result, null, PGSQL_ASSOC))
+				{
+					$artist = $row['artist'];
+					$album = $row['album'];
+					$genre = $row['genre'];
+					$song = $row['song'];
+					echo "";
+					echo $artist;
+					echo $song;
+					echo $album;
+					echo $genre;
+				}
+			}
+			else
+			{
+				echo "<p> Please enter a search term </p>";
+			}
+		}
+	}
+	pg_free_result($result);
+	pg_close($db);
 <header>
 <!-- Main header and navigation bar with drop down menus -->
 <nav>
@@ -47,12 +81,10 @@ it creates a hotbar icon beside the title so not currently working as the zombie
 </li>
 </ul>
 <br>
-<form action="Results_Page.php" method="post">
-  <input type="text" name="Search"> <!--Hamza & Jeanette 5eva-->
-  <input type="submit" value="Submit"> &nbsp;
-<a href = "#" >Shopping</a>
+<form action="demo_form.asp">
+  Hamza & Jeanette 5eva <input type="text" name="fname">
+  <input type="submit" value="Submit">
 </form> 
-
 </nav>
 </header>
 
@@ -71,41 +103,7 @@ it creates a hotbar icon beside the title so not currently working as the zombie
 
 
 <div align ="center" id = "wrapper">
-<br>
-<br>
-<br>
-<section id = "main">
-<script type="text/javascript">
-var image1 = new Image()
-image1.src = "S1dside.jpg"
-var image2 = new Image()
-image2.src = "S3.jpg"
-var image3 = new Image()
-image3.src = "s4.jpg"
-var image4 = new Image()
-image4.src = "s5.jpg"
-var image5 = new Image()   <!--  SLIDESHOW!
-image5.src = "s6.jpg"
-var image6 = new Image()
-image6.src = "s7.jpg"
-var image7 = new Image()
-image7.src = "s8.jpg"
-</script>
-</head>
-<body>
-<p><img src="images/pentagg.jpg" width="600" height="400" name="slide" /></p>
-<script type="text/javascript">
-        var step=1;
-        function slideit()
-        {
-            document.images.slide.src = eval("image"+step+".src");
-            if(step<6)
-                step++;
-            else
-                step=1;
-            setTimeout("slideit()",2500);
-        }
-        slideit();
+
 </script>
 <!-- Everything else goes in here somewhere, I have javascript to put in a slideshow of products when you are ready -->
 </section>
