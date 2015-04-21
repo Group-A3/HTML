@@ -7,11 +7,6 @@
 it creates a hotbar icon beside the title so not currently working as the zombie.ico is in the images folder-->
 </head>
 <body>
-<br />
-<br />
-<br />
-<br />
-
 <header>
 <!-- Main header and navigation bar with drop down menus -->
 <nav>
@@ -52,9 +47,10 @@ it creates a hotbar icon beside the title so not currently working as the zombie
 </li>
 </ul>
 <br>
-<form action="demo_form.asp">
-  Hamza & Jeanette 5eva <input type="text" name="fname">
-  <input type="submit" value="Submit">
+<form action="Results_Page.php" method="post">
+  <input type="text" name="field"> <!--Hamza & Jeanette 5eva-->
+  <input type="submit" value="submit">
+<a href = "#" >Shopping</a>
 </form> 
 </nav>
 </header>
@@ -69,35 +65,27 @@ it creates a hotbar icon beside the title so not currently working as the zombie
 </section>
 <div id="sidebar">
             <h1>Sidebar</h1>
-			</div>
-
-
-
+</div>
 <div id = "wrapper">
 	
 	<?php
-include('config.php');
+	include('config.php');
 
-	$result = "ErRoR";
-	$db = "Hamza is a loooooooooooooooser";
-	
-	echo "LETS GO\n";
-	
 	#if(isset($_POST['submit']))
 	{
-		echo "THIS IS IN ALL CAPS AND SHOULD BE EASY TO SEE\n";
-		if(isset($_GET['go']))
-		{
-			echo "this is here now AND SHOULD BE EASY TO SEE\n";
+		#echo 'submit';
+		#echo "something";
+		#if(isset($_GET['go']))
+		#{
 			if(preg_match("/^[a-zA-Z]+/", $_POST['field']))
 			{
-				echo "iluvujyghhjhk\n";
 				$field = $_POST['field'];
 				echo $field;
 				echo "\n";
 				echo "\n";
 				
-				$query = 'SELECT * FROM music WHERE artist LIKE '%" .$field . "%' OR album LIKE '%" .$field . "%' OR genre LIKE '%" .$field . "%' OR song LIKE '%" .$field . "%' ';
+				
+				$query = "SELECT * FROM music WHERE artist LIKE '%" .$field . "%' OR album LIKE '%" .$field . "%' OR genre LIKE '%" .$field . "%' OR song LIKE '%" .$field . "%' ";
 				$result = pg_query($query) or die('Search failed: ' . pg_last_error());
 				$numrows = pg_num_rows($result);
 				echo "<p>" .$numrows . " results found for " . $field . "</p>";
@@ -107,18 +95,24 @@ include('config.php');
 					$album = $row['album'];
 					$genre = $row['genre'];
 					$song = $row['song'];
-					echo "";
+					echo " ";
 					echo $artist;
+					echo " ";
 					echo $song;
+					echo " ";
 					echo $album;
+					echo " ";
 					echo $genre;
+					echo " ";
+					echo "\r\n";
+
 				}
 			}
 			else
 			{
 				echo "<p> Please enter a search term </p>";
 			}
-		}
+		#}
 	}
 	echo "done";
 	#pg_free_result($result);
