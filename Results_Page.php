@@ -7,7 +7,17 @@
 it creates a hotbar icon beside the title so not currently working as the zombie.ico is in the images folder-->
 </head>
 <body>
+<br />
+<br />
+<br />
+<br />
+<?php
 include('config.php');
+
+				echo "";
+				echo "\r\n";				
+				echo "\r\n";
+				echo "\r\n";
 
 	if(isset($_POST['submit']))
 	{
@@ -16,6 +26,10 @@ include('config.php');
 			if(preg_match("/^[a-zA-Z]+/", $_POST['field']))
 			{
 				$field = $_POST['field'];
+				echo $field;
+				echo "\n";
+				echo "\n";
+				echo "THIS IS IN ALL CAPS AND SHOULD BE EASY TO SEE";
 				$query = 'SELECT * FROM music WHERE artist LIKE '%" .$field . "%' OR album LIKE '%" .$field . "%' OR genre LIKE '%" .$field . "%' OR song LIKE '%" .$field . "%' ';
 				$result = pg_query($query) or die('Search failed: ' . pg_last_error());
 				$numrows = pg_num_rows($result);
@@ -41,6 +55,7 @@ include('config.php');
 	}
 	pg_free_result($result);
 	pg_close($db);
+?>
 <header>
 <!-- Main header and navigation bar with drop down menus -->
 <nav>

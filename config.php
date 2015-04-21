@@ -5,6 +5,6 @@
 	$dbname="cs230";
 	define("SECURE", FALSE);
 	
-	$dbconn = pg_connect("$host","$dbname","$username","$password");
-	or die('Could not connect to database: ' . pg_last_error());
+	$dbconn = pg_connect("host=$host dbname=$dbname user=$username password=$password")
+		or die('Could not connect to database: ' . pg_last_error());
 ?>
