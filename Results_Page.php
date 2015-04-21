@@ -11,51 +11,7 @@ it creates a hotbar icon beside the title so not currently working as the zombie
 <br />
 <br />
 <br />
-<?php
-include('config.php');
 
-				echo "";
-				echo "\r\n";				
-				echo "\r\n";
-				echo "\r\n";
-
-	if(isset($_POST['submit']))
-	{
-		if(isset($_GET['go']))
-		{
-			if(preg_match("/^[a-zA-Z]+/", $_POST['field']))
-			{
-				$field = $_POST['field'];
-				echo $field;
-				echo "\n";
-				echo "\n";
-				echo "THIS IS IN ALL CAPS AND SHOULD BE EASY TO SEE";
-				$query = 'SELECT * FROM music WHERE artist LIKE '%" .$field . "%' OR album LIKE '%" .$field . "%' OR genre LIKE '%" .$field . "%' OR song LIKE '%" .$field . "%' ';
-				$result = pg_query($query) or die('Search failed: ' . pg_last_error());
-				$numrows = pg_num_rows($result);
-				echo "<p>" .$numrows . " results found for " . $field . "</p>";
-				while($row = pg_fetch_array($result, null, PGSQL_ASSOC))
-				{
-					$artist = $row['artist'];
-					$album = $row['album'];
-					$genre = $row['genre'];
-					$song = $row['song'];
-					echo "";
-					echo $artist;
-					echo $song;
-					echo $album;
-					echo $genre;
-				}
-			}
-			else
-			{
-				echo "<p> Please enter a search term </p>";
-			}
-		}
-	}
-	pg_free_result($result);
-	pg_close($db);
-?>
 <header>
 <!-- Main header and navigation bar with drop down menus -->
 <nav>
@@ -117,13 +73,63 @@ include('config.php');
 
 
 
-<div align ="center" id = "wrapper">
+<div id = "wrapper">
+	
+	<?php
+include('config.php');
 
-</script>
+	$result = "ErRoR";
+	$db = "Hamza is a loooooooooooooooser";
+	
+	echo "LETS GO\n";
+	
+	#if(isset($_POST['submit']))
+	{
+		echo "THIS IS IN ALL CAPS AND SHOULD BE EASY TO SEE\n";
+		if(isset($_GET['go']))
+		{
+			echo "this is here now AND SHOULD BE EASY TO SEE\n";
+			if(preg_match("/^[a-zA-Z]+/", $_POST['field']))
+			{
+				echo "iluvujyghhjhk\n";
+				$field = $_POST['field'];
+				echo $field;
+				echo "\n";
+				echo "\n";
+				
+				$query = 'SELECT * FROM music WHERE artist LIKE '%" .$field . "%' OR album LIKE '%" .$field . "%' OR genre LIKE '%" .$field . "%' OR song LIKE '%" .$field . "%' ';
+				$result = pg_query($query) or die('Search failed: ' . pg_last_error());
+				$numrows = pg_num_rows($result);
+				echo "<p>" .$numrows . " results found for " . $field . "</p>";
+				while($row = pg_fetch_array($result, null, PGSQL_ASSOC))
+				{
+					$artist = $row['artist'];
+					$album = $row['album'];
+					$genre = $row['genre'];
+					$song = $row['song'];
+					echo "";
+					echo $artist;
+					echo $song;
+					echo $album;
+					echo $genre;
+				}
+			}
+			else
+			{
+				echo "<p> Please enter a search term </p>";
+			}
+		}
+	}
+	echo "done";
+	#pg_free_result($result);
+	#pg_close($db);
+?>
 <!-- Everything else goes in here somewhere, I have javascript to put in a slideshow of products when you are ready -->
 </section>
 </div>
+<div style = "float:right; width-max:50%">
 
+</div>
 <footer
 <!-- Footer needs to have alot more -->
 <p>&#169; Team A3</p>
