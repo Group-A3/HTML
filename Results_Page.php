@@ -95,6 +95,10 @@ it creates a hotbar icon beside the title so not currently working as the zombie
 					$album = $row['album'];
 					$genre = $row['genre'];
 					$song = $row['song'];
+					$year = $row['year'];
+					$publisher = $row['publisher'];
+					$price = preg_replace("[^0-9]", "", $row['price']);
+					$image = substr($row['image'], 1);
 					echo " ";
 					echo $artist;
 					echo " ";
@@ -103,8 +107,13 @@ it creates a hotbar icon beside the title so not currently working as the zombie
 					echo $album;
 					echo " ";
 					echo $genre;
+					echo " &euro;";					
+					echo $price;
 					echo " ";
-					echo "\r\n";
+					//echo $image;
+					echo '<img src="' . $image . '" alt="error">';
+					echo "<br />";
+
 
 				}
 			}
