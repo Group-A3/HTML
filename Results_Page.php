@@ -44,6 +44,10 @@
 											<th />
 											<th />
 											<th />
+											<th />
+											<th />
+											<th />
+											<th />
 										</tr>
 									</thead>
 									<tbody>';
@@ -68,7 +72,19 @@
 												".$artist."
 											</td>
 											<td>
+												".$slbum."
+											</td>
+											<td>
 												".$song."
+											</td>											
+											<td>
+												".$price."
+											</td>
+											<td>
+												".$genre."
+											</td>
+											<td>
+												".$publisher."
 											</td>
 										</tr>";
 							}
