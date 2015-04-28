@@ -72,7 +72,7 @@
 												".$artist."
 											</td>
 											<td>
-												".$slbum."
+												".$album."
 											</td>
 											<td>
 												".$song."
