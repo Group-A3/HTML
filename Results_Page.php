@@ -82,7 +82,6 @@ it creates a hotbar icon beside the title so not currently working as the zombie
 				echo "\n";
 				echo "\n";
 				
-				
 				$query = "SELECT * FROM music WHERE artist ILIKE '%" .$field . "%' OR album ILIKE '%" .$field . "%' OR genre ILIKE '%" .$field . "%' OR song ILIKE '%" .$field . "%' ";
 				$result = pg_query($query) or die('Search failed: ' . pg_last_error());
 				$numrows = pg_num_rows($result);
