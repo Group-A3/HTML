@@ -12,8 +12,8 @@ it creates a hotbar icon beside the title so not currently working as the zombie
 <nav>
 <ul class = "menu">
 <li>
-<a href = "homepage.html"><img src = "../Images/zombie.png"/></a>
-<a href = "homepage.html">Music Zombies</a>
+<a href = "homepage.php"><img src = "../Images/zombie.png"/></a>
+<a href = "homepage.php">Music Zombies</a>
 </li>
 <li>
 <a href="#">Music</a><!-- Drop down menu title-->
@@ -49,7 +49,7 @@ it creates a hotbar icon beside the title so not currently working as the zombie
 <br>
 <form action="Results_Page.php" method="post">
   <input type="text" name="field"> <!--Hamza & Jeanette 5eva-->
-  <input type="submit" value="submit">
+  <input type="submit" value="submit" name="submit">
 <a href = "#" >Shopping</a>
 </form> 
 </nav>
@@ -71,12 +71,10 @@ it creates a hotbar icon beside the title so not currently working as the zombie
 	<?php
 	include('config.php');
 
-	#if(isset($_POST['submit']))
+	if(isset($_POST['submit']))
 	{
-		#echo 'submit';
-		#echo "something";
 		#if(isset($_GET['go']))
-		#{
+		{
 			if(preg_match("/^[a-zA-Z]+/", $_POST['field']))
 			{
 				$field = $_POST['field'];
@@ -85,7 +83,7 @@ it creates a hotbar icon beside the title so not currently working as the zombie
 				echo "\n";
 				
 				
-				$query = "SELECT * FROM music WHERE artist LIKE '%" .$field . "%' OR album LIKE '%" .$field . "%' OR genre LIKE '%" .$field . "%' OR song LIKE '%" .$field . "%' ";
+				$query = "SELECT * FROM music WHERE artist ILIKE '%" .$field . "%' OR album LIKE '%" .$field . "%' OR genre LIKE '%" .$field . "%' OR song LIKE '%" .$field . "%' ";
 				$result = pg_query($query) or die('Search failed: ' . pg_last_error());
 				$numrows = pg_num_rows($result);
 				echo "<p>" .$numrows . " results found for " . $field . "</p>";
@@ -95,6 +93,10 @@ it creates a hotbar icon beside the title so not currently working as the zombie
 					$album = $row['album'];
 					$genre = $row['genre'];
 					$song = $row['song'];
+					$year = $row['year'];
+					$publisher = $row['publisher'];
+					$price = preg_replace("[^0-9]", "", $row['price']);
+					$image = substr($row['image'], 1);
 					echo " ";
 					echo $artist;
 					echo " ";
@@ -103,8 +105,12 @@ it creates a hotbar icon beside the title so not currently working as the zombie
 					echo $album;
 					echo " ";
 					echo $genre;
+					echo " &euro;";					
+					echo $price;
 					echo " ";
-					echo "\r\n";
+					echo '<img src="' . $image . '" alt="error">';
+					echo "<br />";
+
 
 				}
 			}
@@ -112,11 +118,9 @@ it creates a hotbar icon beside the title so not currently working as the zombie
 			{
 				echo "<p> Please enter a search term </p>";
 			}
-		#}
+		}
 	}
 	echo "done";
-	#pg_free_result($result);
-	#pg_close($db);
 ?>
 <!-- Everything else goes in here somewhere, I have javascript to put in a slideshow of products when you are ready -->
 </section>
