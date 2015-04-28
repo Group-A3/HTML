@@ -30,15 +30,24 @@
 						if(preg_match("/^[a-zA-Z]+/", $_POST['field']))
 						{
 							$field = $_POST['field'];
-							echo $field;
-							echo "\n";
-							echo "\n";
+							echo "Results for: ".$field;
 							
 							
 							$query = "SELECT * FROM music WHERE artist ILIKE '%" .$field . "%' OR album ILIKE '%" .$field . "%' OR genre ILIKE '%" .$field . "%' OR song ILIKE '%" .$field . "%' ";
 							$result = pg_query($query) or die('Search failed: ' . pg_last_error());
 							$numrows = pg_num_rows($result);
 							echo "<p>" .$numrows . " results found for " . $field . "</p>";
+							
+							echo '<table>
+									<thead>
+										<tr>
+											<th />
+											<th />
+											<th />
+										</tr>
+									</thead>
+									<tbody>';
+										
 							while($row = pg_fetch_array($result, null, PGSQL_ASSOC))
 							{
 								$artist = $row['artist'];
@@ -49,28 +58,23 @@
 								$publisher = $row['publisher'];
 								$price = preg_replace("[^0-9]", "", $row['price']);
 								$image = substr($row['image'], 1);
-								echo " ";
-								echo "<br />";
-								echo $artist;
-								echo " ";
-								echo "<br />";
-								echo $song;
-								echo " ";
-								echo "<br />";
-								echo $album;
-								echo " ";
-								echo "<br />";
-								echo $genre;
-								echo "<br />";
-								echo " &euro;";					
-								echo $price;
-								echo "<br />";
-								echo " ";
-								echo '<img src="' . $image . '" alt="error">';
-								echo "<br />";
+
 				
-				
+								echo 	"<tr>
+											<td>
+												".'<img src="' . $image . '" alt="error">'."
+											</td>
+											<td>
+												".$artist."
+											</td>
+											<td>
+												".$song."
+											</td>
+										</tr>";
 							}
+							
+							echo 	"</tbody>
+								</table>";
 						}
 						else
 						{
