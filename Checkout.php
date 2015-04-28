@@ -7,52 +7,7 @@
 it creates a hotbar icon beside the title so not currently working as the zombie.ico is in the images folder-->
 </head>
 <body>
-<header>
-<!-- Main header and navigation bar with drop down menus -->
-<nav>
-<ul class = "menu">
-<li>
-<a href = "homepage.html"><img src = "zombie.png"/></a>
-<a href = "homepage.html">Music Zombies</a>
-</li>
-<li>
-<a href="#">Music</a><!-- Drop down menu title-->
-<ul>
-<!-- Drop down menu links -->
-<li>
-<a href = "#">CD's</a><!-- # is placeholder-->
-</li>
-<li>
-<a href = "#">Digital</a><!-- # is placeholder-->
-</li>
-</ul>
-</li>
-<li>
-<a href="#">Merchandise &nbsp; &nbsp; </a><!-- Drop down menu title-->
-<ul>
-<!-- Drop down menu links -->
-<li>
-<a href = "#">T-Shirts</a><!-- # is placeholder-->
-</li>
-<li>
-<a href = "#">Cups</a><!-- # is placeholder-->
-</li>
-<li>
-<a href = "#">Posters</a><!-- # is placeholder-->
-</li>
-</ul>
-</li>
-<li>
-<a href="#">Sign Up</a>
-</li>
-</ul>
-<br>
-<form action="demo_form.asp">
-  Hamza & Jeanette 5eva <input type="text" name="fname">
-  <input type="submit" value="Submit">
-</form> 
-</nav>
-</header>
+<?php include ('../jscript-and-php/header.php'); ?>
 
 <section id = "secondhead">
 <nav>
@@ -75,14 +30,6 @@ it creates a hotbar icon beside the title so not currently working as the zombie
 </section>
 </div>
 
-<footer
-<!-- Footer needs to have alot more -->
-<p>&#169; Team A3</p>
-<br>
-<p> About Us </p>
-<p> Contact info </p>
-<p> T & C </p>
-<p> Help </p>
-</footer>
+<?php include ('../jscript-and-php/footer.php'); ?>
 </body>
 </html>
