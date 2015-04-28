@@ -81,7 +81,6 @@
 				echo "done";
 				?>
 			<!-- Everything else goes in here somewhere, I have javascript to put in a slideshow of products when you are ready -->
-			</section>
 		</div>
 		<div style = "float:right; width-max:50%">
 		</div>

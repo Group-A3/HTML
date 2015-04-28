@@ -19,43 +19,9 @@
 		<div id="sidebar">
 			<h1>Sidebar</h1>
 		</div>
-		<div align ="center" id = "wrapper">
-			<br>
-			<br>
-			<br>
+		<div id = "wrapper">
 			<section id = "main">
-				<script type="text/javascript">
-				var image1 = new Image()
-				image1.src = "S1dside.jpg"
-				var image2 = new Image()
-				image2.src = "S3.jpg"
-				var image3 = new Image()
-				image3.src = "s4.jpg"
-				var image4 = new Image()
-				image4.src = "s5.jpg"
-				var image5 = new Image()   <!--  SLIDESHOW!
-					image5.src = "s6.jpg"
-					var image6 = new Image()
-					image6.src = "s7.jpg"
-					var image7 = new Image()
-					image7.src = "s8.jpg"
-					</script>
-					</head>
-					<body>
-					<p><img src="images/pentagg.jpg" width="600" height="400" name="slide" /></p>
-					<script type="text/javascript">
-					        var step=1;
-					        function slideit()
-					        {
-					            document.images.slide.src = eval("image"+step+".src");
-					            if(step<6)
-					                step++;
-					            else
-					                step=1;
-					            setTimeout("slideit()",2500);
-					        }
-					        slideit();
-					</script>
+
 					<!-- Everything else goes in here somewhere, I have javascript to put in a slideshow of products when you are ready -->
 			</section>
 		</div>

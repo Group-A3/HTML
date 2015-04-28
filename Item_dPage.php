@@ -16,8 +16,8 @@
 				</ul>
 			</nav>
 		</section>
-		<div align ="center" id = "wrapper">
-			</script>
+		<div id = "wrapper">
+			<section id="main">
 			<!-- Everything else goes in here somewhere, I have javascript to put in a slideshow of products when you are ready -->
 			</section>
 		</div>
