@@ -7,7 +7,7 @@
 it creates a hotbar icon beside the title so not currently working as the zombie.ico is in the images folder-->
 </head>
 <body>
-<?php include('../jscript-and-php/header.php'); ?>
+<?php include('../jscript-and-php/header.php'); ?> <!-- Header-->
 
 <section id = "secondhead">
 <nav>
@@ -88,14 +88,6 @@ it creates a hotbar icon beside the title so not currently working as the zombie
 <div style = "float:right; width-max:50%">
 
 </div>
-<footer
-<!-- Footer needs to have alot more -->
-<p>&#169; Team A3</p>
-<br>
-<p> About Us </p>
-<p> Contact info </p>
-<p> T & C </p>
-<p> Help </p>
-</footer>
+<?php include ('../jscript-and-php/footer.php'); ?>
 </body>
 </html>

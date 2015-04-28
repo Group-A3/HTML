@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link id = "pstyle" type="text/css" rel="stylesheet" href="homestyle.css"/>
+<link id = "pstyle" type="text/css" rel="stylesheet" href="../CSS/homestyle.css"/>
 <title>Music Zombie</title>
 <link rel="icon" href="zombies.ico"/><!-- Only works when image is placed in same folder as html,
 it creates a hotbar icon beside the title so not currently working as the zombie.ico is in the images folder-->
