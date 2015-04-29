@@ -34,7 +34,8 @@
 						$numrows = pg_num_rows($result);
 						echo "<p>" .$numrows . " results found for \"" . $field . "\"</p>";
 						
-						echo '<table>
+						echo '
+						<table>
 								<thead>
 									<tr>
 										<th />
@@ -58,10 +59,11 @@
 							$publisher = $row['publisher'];
 							$price = $row['price'];
 							$image = substr($row['image'], 1);
+							$id = $row[''];
 
 			
-							echo 	'
-								<tr >
+							echo 	'<a href="Item_dPage.php?a=ID GOES HERE">
+								<tr>
 									<td>
 										<img src="' . $image . '" alt="album art">
 									</td>
@@ -83,7 +85,9 @@
 									<td>
 										'.$publisher.'
 									</td>
-								</tr>';
+								</tr>
+							</a>';
+								
 						}
 						
 						echo 	'</tbody>
