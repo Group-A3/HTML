@@ -25,81 +25,76 @@
 				
 				if(isset($_POST['submit']))
 				{
-					#if(isset($_GET['go']))
+					if(preg_match("/^[a-zA-Z]+/", $_POST['field']))
 					{
-						if(preg_match("/^[a-zA-Z]+/", $_POST['field']))
+						$field = $_POST['field'];
+						
+						$query = "SELECT * FROM music WHERE artist ILIKE '%" .$field . "%' OR album ILIKE '%" .$field . "%' OR genre ILIKE '%" .$field . "%' OR song ILIKE '%" .$field . "%' ";
+						$result = pg_query($query) or die('Search failed: ' . pg_last_error());
+						$numrows = pg_num_rows($result);
+						echo "<p>" .$numrows . " results found for \"" . $field . "\"</p>";
+						
+						echo '<table>
+								<thead>
+									<tr>
+										<th />
+										<th />
+										<th />
+										<th />
+										<th />
+										<th />
+										<th />
+									</tr>
+								</thead>
+								<tbody>';
+									
+						while($row = pg_fetch_array($result, null, PGSQL_ASSOC))
 						{
-							$field = $_POST['field'];
-							echo "Results for: ".$field;
-							
-							
-							$query = "SELECT * FROM music WHERE artist ILIKE '%" .$field . "%' OR album ILIKE '%" .$field . "%' OR genre ILIKE '%" .$field . "%' OR song ILIKE '%" .$field . "%' ";
-							$result = pg_query($query) or die('Search failed: ' . pg_last_error());
-							$numrows = pg_num_rows($result);
-							echo "<p>" .$numrows . " results found for " . $field . "</p>";
-							
-							echo '<table>
-									<thead>
-										<tr>
-											<th />
-											<th />
-											<th />
-											<th />
-											<th />
-											<th />
-											<th />
-										</tr>
-									</thead>
-									<tbody>';
-										
-							while($row = pg_fetch_array($result, null, PGSQL_ASSOC))
-							{
-								$artist = $row['artist'];
-								$album = $row['album'];
-								$genre = $row['genre'];
-								$song = $row['song'];
-								$year = $row['year'];
-								$publisher = $row['publisher'];
-								$price = preg_replace("[^0-9]", "", $row['price']);
-								$image = substr($row['image'], 1);
+							$artist = $row['artist'];
+							$album = $row['album'];
+							$genre = $row['genre'];
+							$song = $row['song'];
+							$year = $row['year'];
+							$publisher = $row['publisher'];
+							$price = $row['price'];
+							$image = substr($row['image'], 1);
 
-				
-								echo 	"<tr>
-											<td>
-												".'<img src="' . $image . '" alt="error">'."
-											</td>
-											<td>
-												".$artist."
-											</td>
-											<td>
-												".$album."
-											</td>
-											<td>
-												".$song."
-											</td>											
-											<td>
-												".$price."
-											</td>
-											<td>
-												".$genre."
-											</td>
-											<td>
-												".$publisher."
-											</td>
-										</tr>";
-							}
-							
-							echo 	"</tbody>
-								</table>";
+			
+							echo 	'
+								<tr >
+									<td>
+										<img src="' . $image . '" alt="album art">
+									</td>
+									<td>
+										'.$artist.'
+									</td>
+									<td>
+										'.$album.'
+									</td>
+									<td>
+										'.$song.'
+									</td>											
+									<td>
+										&euro;'.$price.'
+									</td>
+									<td>
+										'.$genre.'
+									</td>
+									<td>
+										'.$publisher.'
+									</td>
+								</tr>';
 						}
-						else
-						{
-							echo "<p> Please enter a search term </p>";
-						}
+						
+						echo 	'</tbody>
+							</table>';
+					}
+					else
+					{
+						echo '<p> Please enter a search term </p>';
 					}
 				}
-				echo "done";
-				?>
+			?>
 			<!-- Everything else goes in here somewhere, I have javascript to put in a slideshow of products when you are ready -->
 		</div>
 		<div style = "float:right; width-max:50%">
