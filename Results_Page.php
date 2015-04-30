@@ -59,13 +59,16 @@
 							$publisher = $row['publisher'];
 							$price = $row['price'];
 							$image = substr($row['image'], 1);
-							$id = $row[''];
+							$id = $row['product_id'];
 
 			
-							echo 	'<a href="Item_dPage.php?a=ID GOES HERE">
+							echo 	'
 								<tr>
 									<td>
-										<img src="' . $image . '" alt="album art">
+										' . $id . '
+									</td>
+									<td>
+										<a href="Item_dPage.php?product='.$id.'"><img src="' . $image . '" alt="album art"></a>
 									</td>
 									<td>
 										'.$artist.'
@@ -86,7 +89,7 @@
 										'.$publisher.'
 									</td>
 								</tr>
-							</a>';
+							';
 								
 						}
 						
