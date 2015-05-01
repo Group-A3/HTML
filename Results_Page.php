@@ -25,6 +25,7 @@
 						<option value="price">Price</option>
 						<option value="artist">Artist</option>
 						<option value="product_id">Id</option>
+<<<<<<< HEAD
 						<input type="submit" name="submit" value="submit"/>
 					</select>
 				</form>
@@ -33,6 +34,15 @@
 				<form action="Results_Page.php" method="post">
 					<input type="radio" name="filter" value="genre">Pop<br>
 					<input type="radio" name="filter" value="genre">Rock<br>
+=======
+					</select>
+				</form>
+				<h2>Filter</h2>
+				<h3>Genre</h3>
+				<form action="Results_Page.php" method="post">
+					<input type="radio" name="filter" value="genre">Pop<br>
+					<input type="radio" name="filter" value="Car" checked>Rock<br>
+>>>>>>> origin/master
 					<input type="submit" name="submit" value="submit"/>
 				</form>
 				<h3>Price</h3>
@@ -73,7 +83,10 @@
 											<th>Price</th>
 											<th>Genre</th>
 											<th>Publisher</th>
+<<<<<<< HEAD
 											<th/>
+=======
+>>>>>>> origin/master
 										</tr>
 									</thead>
 									<tbody>';
@@ -118,7 +131,11 @@
 											'.$publisher.'
 										</td>
 										<td>
+<<<<<<< HEAD
 											<button class = "basket" name = "add" type = "submit" onclick="itemAdded()">Add to Basket</button>
+=======
+											<button name = "add" type = "submit" onclick="itemAdded()">Add to Basket</button>
+>>>>>>> origin/master
 										</td>
 									</tr>
 								';

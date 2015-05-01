@@ -35,8 +35,7 @@
 				$price = $row['price'];
 				$image = substr($row['image'], 1);
 				
-				//PLEASE FIXED THE INLINE STYLING, SHOULD BE IN CSS FILE
-				echo '<div class = "cover" style="float:left;">
+				echo '<div class = "cover">
 						<a href="Item_dPage.php?product='.$product.'"><img src="' . $image . '" alt="album art"></a>
 					</div>
 					<div class = "info">
@@ -59,6 +58,39 @@
 						echo '
 							<p>'.$song.' by '.$artist.' was released in '.$year.' under '.$publisher.'.</p> 
 							<p>It is part of the album '.$album.', it is a '.$genre.' song.</p>
+					</div>
+					
+					<h3>Other songs from the same genre
+					<div class = "samples">
+						<table>
+							<thead>
+								<tr>';
+								
+						$query = "SELECT * FROM music WHERE genre ILIKE '%" .$genre. "%' LIMIT 10";
+						$result = pg_query($query) or die('Search failed: ' . pg_last_error());
+									
+						while($row = pg_fetch_array($result, null, PGSQL_ASSOC))
+						{
+							$artist = $row['artist'];
+							$album = $row['album'];
+							$genre = $row['genre'];
+							$song = $row['song'];
+							$year = $row['year'];
+							$publisher = $row['publisher'];
+							$price = $row['price'];
+							$image = substr($row['image'], 1);
+							$id = $row['product_id'];
+
+							echo 	'
+									<td>
+										<a href="Item_dPage.php?product='.$id.'"><img src="' . $image . '" alt="album art"></a>
+									</td>';	
+						}
+						
+						echo '
+								</tr>
+							</thead>
+						</table>
 					</div>
 				';
 			
