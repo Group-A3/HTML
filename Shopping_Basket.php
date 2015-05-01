@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<?php include('../jscript-and-php/functions.php'); ?>
 		<link id = "pstyle" type="text/css" rel="stylesheet" href="../CSS/homestyle.css"/>
 		<title>Music Zombie</title>
 		<link rel="icon" href="zombies.ico"/>

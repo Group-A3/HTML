@@ -35,12 +35,33 @@
 				$price = $row['price'];
 				$image = substr($row['image'], 1);
 				
-				echo '<a href="Item_dPage.php?product='.$product.'"><img src="' . $image . '" alt="album art"></a>';
-				echo '<p></p>;
+				//PLEASE FIXED THE INLINE STYLING, SHOULD BE IN CSS FILE
+				echo '<div class = "cover" style="float:left;">
+						<a href="Item_dPage.php?product='.$product.'"><img src="' . $image . '" alt="album art"></a>
+					</div>
+					<div class = "info" style="float:right;">
+						<h2>'.$song.'</h2>
+						<ul>
+							<li>ARTIST:'.$artist.'</li>
+							<li>ALBUM:'.$album.'</li>
+							<li>GENRE:'.$genre.'</li>
+							<li>RELEASED:'.$year.'</li>
+						<ul>
+						
+						';
+						
+						//This is where the add to basket button might go
+						echo'
+						<h3>&euro;'.$price.'</h3>
+						<button name = "add" type = "submit" onclick="alert(\'BUY ME MORE JEWELERY\')">Add to Basket</button>';
+						
+						//This is the paragraph about the product
+						echo '
+							<p>'.$song.' by '.$artist.' was released in '.$year.' under '.$publisher.'.</p> 
+							<p>It is part of the album '.$album.', it is a '.$genre.' song.</p>
+					</div>
+				';
 			
-				
-			
-				echo 'The product id is :'.$product;
 			?>
 			<!-- Everything else goes in here somewhere, I have javascript to put in a slideshow of products when you are ready -->
 			</section>
