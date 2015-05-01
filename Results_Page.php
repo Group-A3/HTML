@@ -88,6 +88,9 @@
 									<td>
 										'.$publisher.'
 									</td>
+									<td>
+										<button name = "add" type = "submit" onclick="itemAdded()">Add to Basket</button>
+									</td>
 								</tr>
 							';
 								
@@ -107,5 +110,7 @@
 		<div style = "float:right; width-max:50%">
 		</div>
 		<?php include ('../jscript-and-php/footer.php'); ?>
+		
+		<script src="../jscript-and-php/notice.js"></script>
 	</body>
 </html>

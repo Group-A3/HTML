@@ -39,7 +39,7 @@
 				echo '<div class = "cover" style="float:left;">
 						<a href="Item_dPage.php?product='.$product.'"><img src="' . $image . '" alt="album art"></a>
 					</div>
-					<div class = "info" style="float:right;">
+					<div class = "info">
 						<h2>'.$song.'</h2>
 						<ul>
 							<li>ARTIST:'.$artist.'</li>
@@ -53,7 +53,7 @@
 						//This is where the add to basket button might go
 						echo'
 						<h3>&euro;'.$price.'</h3>
-						<button name = "add" type = "submit" onclick="alert(\'BUY ME MORE JEWELERY\')">Add to Basket</button>';
+						<button name = "add" type = "submit" onclick="itemAdded()">Add to Basket</button>';
 						
 						//This is the paragraph about the product
 						echo '
@@ -67,5 +67,7 @@
 			</section>
 		</div>
 		<?php include ('../jscript-and-php/footer.php'); ?>
+		
+		<script src="../jscript-and-php/notice.js"></script>
 	</body>
 </html>
