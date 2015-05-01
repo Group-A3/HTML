@@ -32,7 +32,7 @@
 				<h3>Genre</h3>
 				<form action="Results_Page.php" method="post">
 					<input type="radio" name="filter" value="genre">Pop<br>
-					<input type="radio" name="filter" value="Car" checked>Rock<br>
+					<input type="radio" name="filter" value="genre">Rock<br>
 					<input type="submit" name="submit" value="submit"/>
 				</form>
 				<h3>Price</h3>
