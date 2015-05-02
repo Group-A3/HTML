@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link id = "pstyle" type="text/css" rel="stylesheet" href="../CSS/homestyle.css"/>
+		<link id="pstyle" type="text/css" rel="stylesheet" href="../CSS/homestyle.css"/>
 		<title>Music Zombie</title>
 		<link rel="icon" href="zombie.ico"/>
 		<!-- Only works when image is placed in same folder as html,
@@ -24,7 +24,7 @@
 					
 					if(isset($_POST['submit']))
 					{
-						if(preg_match("/^[a-zA-Z]+/", $_POST['field']))
+						if(preg_match("/^[a-zA-Z0-9]+/", $_POST['field'])) //only alphanumeric characters
 						{
 							$field = $_POST['field'];
 							
@@ -32,6 +32,8 @@
 							$result = pg_query($query) or die('Search failed: ' . pg_last_error());
 							$numrows = pg_num_rows($result);
 							echo "<p>" .$numrows . " results found for \"" . $field . "\"</p>";
+							
+							$stack = array();
 							
 							echo '
 							<table>
@@ -62,7 +64,8 @@
 								$image = substr($row['image'], 1);
 								$id = $row['product_id'];
 
-				
+								array_push($stack, $genre);
+								
 								echo 	'
 									<tr>
 										<td>
@@ -110,7 +113,7 @@
 			<section id="sidebar">
 				<h1>Advanced Search</h1>
 				<h2>Sort By</h2>
-				<form action="Results_Page.php" method="post">
+				<form action="Query_Page.php" method="post">
 					<select>
 						<option value="genre">Genre</option>
 						<option value="price">Price</option>
@@ -121,13 +124,13 @@
 				</form>
 				<h2>Search In</h2>
 				<h3>Genre</h3>
-				<form action="Results_Page.php" method="post">
+				<form action="Query_Page.php" method="post">
 					<input type="radio" name="filter" value="genre">Pop<br>
 					<input type="radio" name="filter" value="genre">Rock<br>
 					<input type="submit" name="submit" value="submit"/>
 				</form>
 				<h3>Price</h3>
-				<form action="Results_Page.php" method="post">
+				<form action="Query_Page.php" method="post">
 					<select>
 						<option value="greater">Greater than</option>
 						<option value="less">Less than</option>

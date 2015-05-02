@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link id = "pstyle" type="text/css" rel="stylesheet" href="../CSS/homestyle.css"/>
+		<link id="pstyle" type="text/css" rel="stylesheet" href="../CSS/homestyle.css"/>
 		<title>Music Zombie</title>
 		<link rel="icon" href="zombie.ico"/>
 		<!-- Only works when image is placed in same folder as html,
@@ -46,7 +46,7 @@
 								<li>ALBUM:'.$album.'</li>
 								<li>GENRE:'.$genre.'</li>
 								<li>RELEASED:'.$year.'</li>
-							<ul>';
+							</ul>';
 						
 						//This is where the add to basket button might go
 						echo'
