@@ -16,35 +16,7 @@
 				</ul>
 			</nav>
 		</section>
-		<section id="sidebar">
-				<h1>Advanced Search</h1>
-				<h2>Sort By</h2>
-				<form action="Results_Page.php" method="post">
-					<select>
-						<option value="genre">Genre</option>
-						<option value="price">Price</option>
-						<option value="artist">Artist</option>
-						<option value="product_id">Id</option>
-						<input type="submit" name="submit" value="submit"/>
-					</select>
-				</form>
-				<h2>Search In</h2>
-				<h3>Genre</h3>
-				<form action="Results_Page.php" method="post">
-					<input type="radio" name="filter" value="genre">Pop<br>
-					<input type="radio" name="filter" value="genre">Rock<br>
-					<input type="submit" name="submit" value="submit"/>
-				</form>
-				<h3>Price</h3>
-				<form action="Results_Page.php" method="post">
-					<select>
-						<option value="greater">Greater than</option>
-						<option value="less">Less than</option>
-					</select>
-					<input type="text" name="price"><br>
-					<input type="submit" name="submit" value="submit"/>
-				</form>
-		</section>
+
 		<div id = "wrapper">
 			<section id = "main">
 				<?php
@@ -135,6 +107,35 @@
 					}
 				?>
 			</section>
+					<section id="sidebar">
+				<h1>Advanced Search</h1>
+				<h2>Sort By</h2>
+				<form action="Results_Page.php" method="post">
+					<select>
+						<option value="genre">Genre</option>
+						<option value="price">Price</option>
+						<option value="artist">Artist</option>
+						<option value="product_id">Id</option>
+						<input type="submit" name="submit" value="submit"/>
+					</select>
+				</form>
+				<h2>Search In</h2>
+				<h3>Genre</h3>
+				<form action="Results_Page.php" method="post">
+					<input type="radio" name="filter" value="genre">Pop<br>
+					<input type="radio" name="filter" value="genre">Rock<br>
+					<input type="submit" name="submit" value="submit"/>
+				</form>
+				<h3>Price</h3>
+				<form action="Results_Page.php" method="post">
+					<select>
+						<option value="greater">Greater than</option>
+						<option value="less">Less than</option>
+					</select>
+					<input type="text" name="price"><br>
+					<input type="submit" name="submit" value="submit"/>
+				</form>
+		</section>
 			<!-- Everything else goes in here somewhere, I have javascript to put in a slideshow of products when you are ready -->
 		</div>
 		<?php include ('../jscript-and-php/footer.php'); ?>
