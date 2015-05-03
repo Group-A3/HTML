@@ -101,7 +101,7 @@
 											'.$publisher.'
 										</td>
 										<td>
-											<button class = "basket" name = "add" type = "submit" onclick="itemAdded()">Add to Basket</button>
+											<input type=button onClick="location.href=\'Shopping_Basket.php?action=add&id='.$id.'\'" value="Add to Basket">
 										</td>
 									</tr>
 								';
