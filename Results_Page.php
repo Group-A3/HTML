@@ -36,6 +36,7 @@
 							OR CAST(year AS TEXT) ILIKE '%" .$field . "%' 
 							OR CAST(product_id AS TEXT) ILIKE '%" .$field . "%' 
 							OR publisher ILIKE '%" .$field . "%'";
+							
 							$result = pg_query($query) or die('Search failed: ' . pg_last_error());
 							$numrows = pg_num_rows($result);
 							echo "<p>" .$numrows . " results found for \"" . $field . "\"</p>";
