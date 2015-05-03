@@ -28,7 +28,14 @@
 						{
 							$field = $_POST['field'];
 							
-							$query = "SELECT * FROM music WHERE artist ILIKE '%" .$field . "%' OR album ILIKE '%" .$field . "%' OR genre ILIKE '%" .$field . "%' OR song ILIKE '%" .$field . "%' ";
+							$query = "SELECT * FROM music 
+							WHERE artist ILIKE '%" .$field . "%' 
+							OR song ILIKE '%" .$field . "%'  
+							OR album ILIKE '%" .$field . "%' 
+							OR genre ILIKE '%" .$field . "%' 
+							OR CAST(year AS TEXT) ILIKE '%" .$field . "%' 
+							OR CAST(product_id AS TEXT) ILIKE '%" .$field . "%' 
+							OR publisher ILIKE '%" .$field . "%'";
 							$result = pg_query($query) or die('Search failed: ' . pg_last_error());
 							$numrows = pg_num_rows($result);
 							echo "<p>" .$numrows . " results found for \"" . $field . "\"</p>";
@@ -40,12 +47,13 @@
 									<thead>
 										<tr>
 											<th>Id</th>
-											<th>Album Cover</th>
+											<th>Album Cover</th>											
+											<th>Song</th>
 											<th>Artist</th>
 											<th>Album</th>
-											<th>Song</th>
 											<th>Price</th>
 											<th>Genre</th>
+											<th>Year</th>
 											<th>Publisher</th>
 											<th/>
 										</tr>
@@ -75,19 +83,22 @@
 											<a href="Item_dPage.php?product='.$id.'"><img src="' . $image . '" alt="album art"></a>
 										</td>
 										<td>
+											'.$song.'
+										</td>
+										<td>
 											'.$artist.'
 										</td>
 										<td>
 											'.$album.'
-										</td>
-										<td>
-											'.$song.'
 										</td>											
 										<td>
 											&euro;'.$price.'
 										</td>
 										<td>
 											'.$genre.'
+										</td>
+										<td>
+											'.$year.'
 										</td>
 										<td>
 											'.$publisher.'

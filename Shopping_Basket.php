@@ -16,10 +16,10 @@
 				</ul>
 			</nav>
 		</section>
-		<div align ="center" id = "wrapper">
-			</script>
+		<div id="wrapper">
+			
 			<!-- Everything else goes in here somewhere, I have javascript to put in a slideshow of products when you are ready -->
-			</section>
+			
 		</div>
 		<?php include ('../jscript-and-php/footer.php'); ?>
 	</body>
