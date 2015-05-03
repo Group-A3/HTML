@@ -35,7 +35,7 @@
 							OR genre ILIKE '%" .$field . "%' 
 							OR CAST(year AS TEXT) ILIKE '%" .$field . "%' 
 							OR CAST(product_id AS TEXT) ILIKE '%" .$field . "%' 
-							OR publisher ILIKE '%" .$field . "%'";
+							OR publisher LIKE '%" .$field . "%'";
 							
 							$result = pg_query($query) or die('Search failed: ' . pg_last_error());
 							$numrows = pg_num_rows($result);
@@ -47,7 +47,6 @@
 							<table>
 									<thead>
 										<tr>
-											<th>Id</th>
 											<th>Album Cover</th>											
 											<th>Song</th>
 											<th>Artist</th>
@@ -77,9 +76,6 @@
 								
 								echo 	'
 									<tr>
-										<td>
-											' . $id . '
-										</td>
 										<td>
 											<a href="Item_dPage.php?product='.$id.'"><img src="' . $image . '" alt="album art"></a>
 										</td>
