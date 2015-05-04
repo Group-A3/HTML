@@ -144,28 +144,17 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td><input type="radio" name="Pop" value="include"></td>
-								<td><input type="radio" name="Pop" value="exclude"></td>
-								<td><p>Pop</p></td>
-							</tr>
-							<tr>
-								<td><input type="radio" name="Rock" value="include"></td>
-								<td><input type="radio" name="Rock" value="exclude"></td>
-								<td><p>Rock</p></td>
-							</tr>
-							<tr>
-								<td><input type="radio" name="Pop" value="include"></td>
-								<td><input type="radio" name="Pop" value="exclude"></td>
-								<td><p>Metal</p></td>
-							</tr>
+					<?php
+						foreach($GLOBALS['stack'] as $value) {
+							echo '<tr>
+								<td><input type="checkbox" name="'.$value.'" value="include"></td>
+								<td><input type="checkbox" name="'.$value.'" value="exclude"></td>
+								<td><p>'.$value.'</p></td>
+							</tr>';
+						}	
+					?>
 						</tbody>
 					</table>
-					<?php
-						//foreach($a as $GLOBALS['stack']) {
-							echo '<p>'.$GLOBALS['stack'].'</p>';
-						//}
-					?>
 				</form>
 				<h3>Price</h3>
 					<select>
