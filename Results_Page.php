@@ -41,7 +41,7 @@
 							$numrows = pg_num_rows($result);
 							echo "<p>" .$numrows . " results found for \"" . $field . "\"</p>";
 							
-							$stack = array();
+							$GLOBALS['stack'] = array();
 							
 							echo '
 							<table>
@@ -72,7 +72,7 @@
 								$image = substr($row['image'], 1);
 								$id = $row['product_id'];
 
-								array_push($stack, $genre);
+								array_push($GLOBALS['stack'], $genre);
 								
 								echo 	'
 									<tr>
@@ -110,6 +110,8 @@
 							
 							echo 	'</tbody>
 								</table>';
+								
+							$GLOBALS['stack'] = array_unique($GLOBALS['stack']);
 						}
 						else
 						{
@@ -119,33 +121,60 @@
 				?>
 			</section>
 			<section id="sidebar">
+			<form action="Query_Page.php" method="post">
 				<h1>Advanced Search</h1>
-				<h2>Sort By</h2>
-				<form action="Query_Page.php" method="post">
+				<!--<h2>Sort By</h2>
 					<select>
 						<option value="genre">Genre</option>
 						<option value="price">Price</option>
 						<option value="artist">Artist</option>
 						<option value="product_id">Id</option>
-						<input type="submit" name="submit" value="submit"/>
-					</select>
-				</form>
-				<h2>Search In</h2>
+					</select>-->
+				
 				<h3>Genre</h3>
-				<form action="Query_Page.php" method="post">
-					<input type="radio" name="filter" value="genre">Pop<br>
-					<input type="radio" name="filter" value="genre">Rock<br>
-					<input type="submit" name="submit" value="submit"/>
+					<table>
+						<thead>
+							<tr>
+								<th>
+									<h4>Include</h4>
+								</th>
+								<th>
+									<h4>Exclude</h4>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><input type="radio" name="Pop" value="include"></td>
+								<td><input type="radio" name="Pop" value="exclude"></td>
+								<td><p>Pop</p></td>
+							</tr>
+							<tr>
+								<td><input type="radio" name="Rock" value="include"></td>
+								<td><input type="radio" name="Rock" value="exclude"></td>
+								<td><p>Rock</p></td>
+							</tr>
+							<tr>
+								<td><input type="radio" name="Pop" value="include"></td>
+								<td><input type="radio" name="Pop" value="exclude"></td>
+								<td><p>Metal</p></td>
+							</tr>
+						</tbody>
+					</table>
+					<?php
+						//foreach($a as $GLOBALS['stack']) {
+							echo '<p>'.$GLOBALS['stack'].'</p>';
+						//}
+					?>
 				</form>
 				<h3>Price</h3>
-				<form action="Query_Page.php" method="post">
 					<select>
 						<option value="greater">Greater than</option>
 						<option value="less">Less than</option>
 					</select>
 					<input type="text" name="price"><br>
 					<input type="submit" name="submit" value="submit"/>
-				</form>
+			</form>
 		</section>
 			<!-- Everything else goes in here somewhere, I have javascript to put in a slideshow of products when you are ready -->
 		</div>
