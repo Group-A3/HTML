@@ -101,7 +101,7 @@
 											'.$publisher.'
 										</td>
 										<td>
-											<input type=button onClick="location.href=\'Shopping_Basket.php?action=add&id='.$id.'\'" value="Add to Basket">
+											<input class="basket" type=button onClick="location.href=\'Shopping_Basket.php?action=add&id='.$id.'\'" value="Add to Basket">
 										</td>
 									</tr>
 								';
@@ -130,7 +130,6 @@
 						<option value="artist">Artist</option>
 						<option value="product_id">Id</option>
 					</select>-->
-				
 				<h3>Genre</h3>
 					<table>
 						<thead>
@@ -147,8 +146,8 @@
 					<?php
 						foreach($GLOBALS['stack'] as $value) {
 							echo '<tr>
-								<td><input type="checkbox" name="'.$value.'" value="include"></td>
-								<td><input type="checkbox" name="'.$value.'" value="exclude"></td>
+								<td><input type="radio" name="'.$value.'" value="include"></td>
+								<td><input type="radio" name="'.$value.'" value="exclude"></td>
 								<td><p>'.$value.'</p></td>
 							</tr>';
 						}	
