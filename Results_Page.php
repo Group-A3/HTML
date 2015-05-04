@@ -18,6 +18,62 @@
 		</section>
 
 		<div id = "wrapper">
+			<section id="sidebar">
+				<form action="Query_Page.php" method="post">
+					<h1>Advanced Search</h1>
+					<!--<h2>Sort By</h2>
+						<select>
+							<option value="genre">Genre</option>
+							<option value="price">Price</option>
+							<option value="artist">Artist</option>
+							<option value="product_id">Id</option>
+						</select>-->
+					
+					<h3>Genre</h3>
+						<table>
+							<thead>
+								<tr>
+									<th>
+										<h4>Include</h4>
+									</th>
+									<th>
+										<h4>Exclude</h4>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><input type="radio" name="Pop" value="include"></td>
+									<td><input type="radio" name="Pop" value="exclude"></td>
+									<td><p>Pop</p></td>
+								</tr>
+								<tr>
+									<td><input type="radio" name="Rock" value="include"></td>
+									<td><input type="radio" name="Rock" value="exclude"></td>
+									<td><p>Rock</p></td>
+								</tr>
+								<tr>
+									<td><input type="radio" name="Pop" value="include"></td>
+									<td><input type="radio" name="Pop" value="exclude"></td>
+									<td><p>Metal</p></td>
+								</tr>
+							</tbody>
+						</table>
+						<?php
+							//foreach($a as $GLOBALS['stack']) {
+								echo '<p>'.$GLOBALS['stack'].'</p>';
+							//}
+						?>
+					</form>
+					<h3>Price</h3>
+						<select>
+							<option value="greater">Greater than</option>
+							<option value="less">Less than</option>
+						</select>
+						<input class = "othertxt" type="text" name="price"><br>
+						<input class = "othersub" type="submit" name="submit" value="submit"/>
+				</form>
+			</section>
 			<section id = "main">
 				<?php
 					include('config.php');
@@ -101,7 +157,7 @@
 											'.$publisher.'
 										</td>
 										<td>
-											<input type=button onClick="location.href=\'Shopping_Basket.php?action=add&id='.$id.'\'" value="Add to Basket">
+											<input class="basket" type=button onClick="location.href=\'Shopping_Basket.php?action=add&id='.$id.'\'" value="Add to Basket">
 										</td>
 									</tr>
 								';
@@ -120,62 +176,7 @@
 					}
 				?>
 			</section>
-			<section id="sidebar">
-			<form action="Query_Page.php" method="post">
-				<h1>Advanced Search</h1>
-				<!--<h2>Sort By</h2>
-					<select>
-						<option value="genre">Genre</option>
-						<option value="price">Price</option>
-						<option value="artist">Artist</option>
-						<option value="product_id">Id</option>
-					</select>-->
-				
-				<h3>Genre</h3>
-					<table>
-						<thead>
-							<tr>
-								<th>
-									<h4>Include</h4>
-								</th>
-								<th>
-									<h4>Exclude</h4>
-								</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><input type="radio" name="Pop" value="include"></td>
-								<td><input type="radio" name="Pop" value="exclude"></td>
-								<td><p>Pop</p></td>
-							</tr>
-							<tr>
-								<td><input type="radio" name="Rock" value="include"></td>
-								<td><input type="radio" name="Rock" value="exclude"></td>
-								<td><p>Rock</p></td>
-							</tr>
-							<tr>
-								<td><input type="radio" name="Pop" value="include"></td>
-								<td><input type="radio" name="Pop" value="exclude"></td>
-								<td><p>Metal</p></td>
-							</tr>
-						</tbody>
-					</table>
-					<?php
-						//foreach($a as $GLOBALS['stack']) {
-							echo '<p>'.$GLOBALS['stack'].'</p>';
-						//}
-					?>
-				</form>
-				<h3>Price</h3>
-					<select>
-						<option value="greater">Greater than</option>
-						<option value="less">Less than</option>
-					</select>
-					<input type="text" name="price"><br>
-					<input type="submit" name="submit" value="submit"/>
-			</form>
-		</section>
+			
 			<!-- Everything else goes in here somewhere, I have javascript to put in a slideshow of products when you are ready -->
 		</div>
 		<?php include ('../jscript-and-php/footer.php'); ?>

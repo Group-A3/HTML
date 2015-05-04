@@ -17,7 +17,8 @@
 			</nav>
 		</section>
 		<div id="wrapper">
-		<section id = "main">
+		<section id = "cart1">
+			<h1>Shopping Basket</h1>
 			<?php
 				$_SESSION['cart'] = isset($_SESSION['cart']) ? $_SESSION['cart'] : '';
 				$product_id = isset($_GET['id']) ? $_GET['id'] : ''; //the product id from the URL
@@ -51,7 +52,7 @@
 				if(isset($_SESSION['cart']) && $_SESSION['cart']) { //if the cart isn't empty
 				//show the cart
 
-					echo "<table border=\"1\" padding=\"3\" width=\"40%\">"; //format the cart using a HTML table
+					echo "<table class=\"mainbasket\">"; //format the cart using a HTML table
 
 					//iterate through the cart, the $product_id is the key and $quantity is the value
 					

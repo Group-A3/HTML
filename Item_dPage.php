@@ -51,7 +51,7 @@
 						//This is where the add to basket button might go
 						echo'
 						<h3>&euro;'.$price.'</h3>
-						<input type=button onClick="location.href=\'Shopping_Basket.php?action=add&id='.$product.'\'" value="Add to Basket">';
+						<input class = "basket" type=button onClick="location.href=\'Shopping_Basket.php?action=add&id='.$product.'\'" value="Add to Basket">';
 						
 						//This is the paragraph about the product
 						echo '
